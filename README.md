@@ -1,61 +1,125 @@
-## Ứng dụng Quản lý TodoList với Flask
+## Aplicación de gestión de listas de tareas con Flask en Docker
 
-_Được viết bởi Khánh Nguyên_
-_19-10-2024_
+_JTiberK_
+_10-07-2025_
 
-Đây là một ứng dụng **Flask** đơn giản giúp quản lý danh sách công việc (Todo List). Ứng dụng cho phép người dùng đăng ký, đăng nhập, và quản lý các ghi chú (note) hoặc công việc của mình. Ứng dụng được xây dựng bằng **Flask**, **Flask-SQLAlchemy**, **Flask-Login**, và **Python-dotenv** để quản lý cấu hình môi trường.
 
-### Các tính năng
+Esta sencilla aplicación de **Flask** permite gestionar listas de tareas. Permite a los usuarios registrarse, iniciar sesión y gestionar sus notas o tareas. Está desarrollada con **Flask**, **Flask-SQLAlchemy**, **Flask-Login** y **Python-dotenv** para gestionar la configuración del entorno.
 
-- Xác thực người dùng (Đăng ký, Đăng nhập, Đăng xuất)
-- Thêm, hoàn thành, và xóa các ghi chú (note)
-- Lưu trữ dữ liệu vĩnh viễn bằng SQLite và SQLAlchemy
-- Thông báo flash để hiển thị thông tin phản hồi cho người dùng
-- Theo dõi trạng thái hoàn thành của các ghi chú
+### Características
 
-### Công nghệ sử dụng
+- Autenticación (Registrarse, Iniciar sesión, Cerrar sesión)
+- Añadir, completar y eliminar notas
+- Almacenamiento permanente de datos con SQLite y SQLAlchemy
+- Notificaciones Flash para mostrar comentarios a los usuarios
+- Seguimiento del estado de finalización de las notas
+
+
+### Tecnología utilizada
 
 - flask
 - Flask-SQLAlchemy
 - flask-login
 - python-dotenv
 
-### Hướng dẫn dùng
 
-**Yêu cầu:**
+### Puesta en marcha
 
-- Python 3.8
+**Requisitos**
+
+- Python 3.8 original, actualizado a Python 3.13.3
 - pip
 
+**Repositorio Original**
 ```bash
 git clone https://github.com/knguyen-1411/todolist-flask.git
 cd todolist-flask
+```
 
+**Creación de entorno virtual**
+```bash
 python -m venv venv
 
 .\venv\Scripts\activate
-
-pip install -r requirements.txt
-
 ```
+El módulo venv admite la creación de «entornos virtuales» ligeros, cada uno con su propio conjunto independiente de paquetes de Python instalados en sus directorios site. Se crea un entorno virtual sobre una instalación existente de Python, conocida como la «base» del entorno virtual de Python y, opcionalmente, se puede aislar de los paquetes en la base del entorno, así que solo están disponibles los instalados explícitamente en el entorno virtual.
 
-Set .env
+```bash
+pip install -r requirements.txt
+```
+Los archivos de requisitos se utilizan para almacenar el resultado de la congelación de pip con el fin de lograr instalaciones repetibles . En este caso, el archivo de requisitos contiene una versión fija de todo lo instalado durante la ejecución.pip freeze
+
+**Set .env**
 
 - KEY=your-secret-key
 - DB_NAME=todolist.db
+
+¿Qué significa "Set .env"?
+La instrucción "Set .env" indica que debes crear un archivo llamado .env en la raíz del proyecto. Este archivo almacenará variables de entorno que la aplicación necesita para funcionar correctamente.
 
 ```bash
 # Run app
 python app.py
 ```
+Lanzar la aplicación de Python-Flask
 
-### Liên hệ
+### Dockerización
 
-- Mọi phản hồi liên hệ đến Khánh Nguyên
+Este proyecto tiene `Dockerfile` y un `compose.yml` (o docker-compose.yml), entonces está listo para ejecutarse en Docker.
+Sin embargo, no aparecerá en Docker Desktop hasta que lo levantes por primera vez.
 
-### Giấy Phép
+Aquí tienes los pasos para que tu proyecto aparezca en Docker Desktop y puedas gestionarlo desde la interfaz:
 
-- Dự án này được cấp phép theo Giấy phép MIT. Xem tệp LICENSE để biết chi tiết.
+1. Abre una terminal en la carpeta de tu proyecto
+Asegúrate de estar en la misma carpeta donde están Dockerfile y compose.yml.
 
-_Hoàn thành 19/10/2024_
-**_Cảm ơn bạn đã xem qua Todo List! Chúng tôi hy vọng bạn thấy nó hữu ích và thú vị. Chúc bạn lập trình vui vẻ!_**
+2. Inicia los servicios con Docker Compose
+Ejecuta el siguiente comando:
+
+```powershell
+docker compose up -d
+```
+
+### Verifica en Docker Desktop
+
+Abre Docker Desktop.
+
+Ve a la sección Containers (Contenedores).
+
+Ahora deberías ver tu proyecto y los servicios definidos en el archivo compose.yml.
+
+3. (Opcional) Verifica desde la terminal
+
+Puedes ver los contenedores en ejecución con:
+
+```powershell
+docker ps
+```
+
+Y las imágenes con:
+
+```powershell
+docker images
+```
+
+4. Detén los servicios cuando quieras
+Desde la terminal, puedes detenerlos con:
+
+```powershell
+docker compose down
+```
+
+**Links** <br>
+https://pip.pypa.io/en/stable/ <br>
+https://www.docker.com/ <br>
+https://hub.docker.com/ <br>
+https://tutorialshub.org/docker-commands/
+
+
+#### Para completar
+```text
+docker ps -a -q
+```
+
+_Completado 19/10/2024_
+
