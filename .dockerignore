@@ -1,4 +1,4 @@
 venv/
 TodoList/__pycache__/
-# Khong sao luu database
+# Do not backup database
 # instance/
