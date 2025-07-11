@@ -1,7 +1,7 @@
 ## Aplicación de gestión de listas de tareas con Flask en Docker
 
 _JTiberK_
-_10-07-2025_
+_11-07-2025_
 
 
 Esta sencilla aplicación de **Flask** permite gestionar listas de tareas. Permite a los usuarios registrarse, iniciar sesión y gestionar sus notas o tareas. Está desarrollada con **Flask**, **Flask-SQLAlchemy**, **Flask-Login** y **Python-dotenv** para gestionar la configuración del entorno.
@@ -121,5 +121,5 @@ https://tutorialshub.org/docker-commands/
 docker ps -a -q
 ```
 
-_Completado 19/10/2024_
+_Completado 11/07/2024_
 
